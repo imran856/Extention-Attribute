@@ -1,0 +1,31 @@
+<?php
+
+?>
+
+<div style="display: flex; justify-content: space-around; cursor: pointer; text-decoration: none; font-size: 35px;">
+    <p>
+    <table style="width:100%">
+        <tr>
+            <th>Entity Id</th>
+            <th> SCHOOL TIME</th>
+            <th>FEEDBACK</th>
+            <th>Edit</th>
+        </tr>
+        <?php $datas = $block->showData();?>
+        <?php foreach ($datas as $data) { ?>
+            <tr>
+                <td><?php echo $data->getEntityId();?></td>
+                <td><?php echo $data->getSchoolTime();?></td>
+                <td><?php echo $data->getFeedback();?></td>
+                <td><a href="<?php echo $this->getUrl('test/index/edit') . '?id=' . $data->getId(); ?>" class="action primary">Edit</a></td>
+            </tr>
+        <?php }?>
+    </table>
+    </p>
+</div>
+
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+</style>

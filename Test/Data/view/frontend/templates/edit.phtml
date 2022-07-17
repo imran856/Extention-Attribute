@@ -1,0 +1,51 @@
+
+<?php
+
+?>
+
+<?php
+$editData = $block->edit();
+?>
+<form class="form contact"
+      action="<?php echo $this->getUrl('test/index/save', ['_secure' => true]) . '?id=' . $editData->getId();?>"
+      id="custom-form"
+      method="post"
+      data-hasrequired="<?php  echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+    <input type="hidden" name="cproduct_id" id="cproduct_id" value="0" />
+
+    <fieldset class="fieldset">
+        <legend class="legend"><span>Student Data</span></legend><br />
+        <div class="field entity required">
+            <label class="label" for="name">Entity Id</label>
+            <div class="control">
+                <input name="entityid" id="entityid" value="<?php  echo $editData->getEntityId(); ?>" title="entityid" class="input-text" type="int" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+        <div class="field entity required">
+            <label class="label" for="name">School Time</label>
+            <div class="control">
+                <input name="schooltime" id="schooltime" value="<?php  echo $editData->getSchoolTime(); ?>" title="schooltime" class="input-text" type="timestamp" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+        <div class="field feedback required">
+            <label class="label" for="feedback">Feedback</span></label>
+            <div class="control">
+                <input name="feedback" id="feedback" value="<?php  echo $editData->getFeedback(); ?>" title="feedback" class="input-text" type="text" data-validate="{required:true, 'validate-feedback':true}"/>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="Submit" class="action submit primary" id="custom_btn">
+                Submit
+            </button>
+        </div>
+    </div>
+</form>
+
+</div>
+

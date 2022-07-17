@@ -1,0 +1,22 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="imran">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" comment="Employee Id"/>
+        <column xsi:type="varchar" name="comp_name" nullable="false" length="255" comment="Company Name"/>
+        <column xsi:type="timestamp" name="office_time"  comment="Time of Office"/>
+        <column xsi:type="mediumtext" name="desc" nullable="true" comment="Job Desc"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+    <table name="student">
+        <column xsi:type="int" name="address_id" padding="10" unsigned="true" nullable="false" comment="Student Id"/>
+        <column xsi:type="int" name="entity_id"  padding="10" nullable="false" unsigned="true" comment="Entity Id"/>
+        <column xsi:type="timestamp" name="school_time"  comment="Time of School"/>
+        <column xsi:type="mediumtext" name="feedback" comment="Feedback"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="address_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="IMRAN_ENTITY_ID_STUDENT_ENTITY_ID" table="student" column="entity_id" referenceTable="imran" referenceColumn="entity_id"/>
+    </table>
+</schema>

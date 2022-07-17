@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Test\Data\Api\Data\RpsEntityInterface" type="Test\Data\Model\Rps" />
+    <preference for="Test\Data\Api\Data\ImranEntityInterface" type="Test\Data\Model\Imran" />
+    <preference for="Test\Data\Api\RpsEntityRepositoryInterface" type="Test\Data\Model\RpsEntityRepository" />
+    <preference for="Test\Data\Api\ImranEntityRepositoryInterface" type="Test\Data\Model\ImranEntityRepository" />
+    <preference for="Test\Data\Api\Data\ImranSearchResultsInterface" type="Test\Data\Model\ImranSearchResults" />
+    <type name="Test\Data\Api\RpsEntityRepositoryInterface">
+        <plugin name="catalogLog" type="Test\Data\Plugin\AddressLoad" />
+    </type>
+    <type name="Test\Data\Api\ImranEntityRepositoryInterface">
+        <plugin name="catalogLog" type="Test\Data\Plugin\EntityLoad" />
+    </type>
+</config>
+
